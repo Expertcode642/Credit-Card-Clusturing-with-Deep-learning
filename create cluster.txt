@@ -1,0 +1,3 @@
+data["CREDIT_CARD_SEGMENTS"] = data["CREDIT_CARD_SEGMENTS"].map({0: "Cluster 1", 1: 
+    "Cluster 2", 2: "Cluster 3", 3: "Cluster 4", 4: "Cluster 5"})
+print(data["CREDIT_CARD_SEGMENTS"].head(10))

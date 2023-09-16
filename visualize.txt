@@ -1,0 +1,18 @@
+import plotly.graph_objects as go
+PLOT = go.Figure()
+for i in list(data["CREDIT_CARD_SEGMENTS"].unique()):
+    
+
+    PLOT.add_trace(go.Scatter3d(x = data[data["CREDIT_CARD_SEGMENTS"]== i]['BALANCE'],
+                                y = data[data["CREDIT_CARD_SEGMENTS"] == i]['PURCHASES'],
+                                z = data[data["CREDIT_CARD_SEGMENTS"] == i]['CREDIT_LIMIT'],                        
+                                mode = 'markers',marker_size = 6, marker_line_width = 1,
+                                name = str(i)))
+PLOT.update_traces(hovertemplate='BALANCE: %{x} <br>PURCHASES %{y} <br>DCREDIT_LIMIT: %{z}')
+
+    
+PLOT.update_layout(width = 800, height = 800, autosize = True, showlegend = True,
+                   scene = dict(xaxis=dict(title = 'BALANCE', titlefont_color = 'black'),
+                                yaxis=dict(title = 'PURCHASES', titlefont_color = 'black'),
+                                zaxis=dict(title = 'CREDIT_LIMIT', titlefont_color = 'black')),
+                   font = dict(family = "Gilroy", color  = 'black', size = 12))

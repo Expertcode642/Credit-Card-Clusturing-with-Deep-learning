@@ -1,0 +1,9 @@
+clustering_data = data[["BALANCE", "PURCHASES", "CREDIT_LIMIT"]]
+from sklearn.preprocessing import MinMaxScaler
+for i in clustering_data.columns:
+    MinMaxScaler(i)
+    
+from sklearn.cluster import KMeans
+kmeans = KMeans(n_clusters=5)
+clusters = kmeans.fit_predict(clustering_data)
+data["CREDIT_CARD_SEGMENTS"] = clusters
